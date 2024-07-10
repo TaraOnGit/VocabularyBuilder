@@ -10,24 +10,15 @@
 </head>
 <body bgcolor="#8E4E70">
 <div>
-    <form action="/get_synonyms", method="get">
-<h1>Build Your Vocabulary</h1>
-<h2><label for="word">Choose a word:</label></h2>
-
-    <select name="words" width="300px">
-        {% if word_list%}
-              {% for word in word_list %}
-                <option name="{{ word }}" SELECTED>{{ word }}  </option>
-               {% endfor%}
-        {%endif%}
-    </select><br><br>
-        <input type="Submit" value="Get Synonyms"> <br><br>
-</form>
-<h2>
-    {%if syn%}
-    {{syn}}
-    {%endif%}
-</h2>
+    <form action="/api/get_synonyms", method="get">
+<h1>Build Your Vocabulary</h1><br>
+<h2><label>What do you want to do?</label></h2><br>
+<h3>
+    Know The Word of The Day<br><br>
+    Learn Synonyms<br><br>
+    Learn Antonyms<br><br>
+    Use the Appropriate API<br>
+</h3>
     </div>
 </body>
 </html>
