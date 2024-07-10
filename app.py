@@ -13,7 +13,8 @@ def index():
 def get_synonyms():
     word = request.args.get('words')
     print(word)
-    synonyms = fw.get_synonyms(word)
-    return synonyms
+
+    syn = fw.get_synonyms(word)
+    return render_template('index.html', syn = syn)
 
 app.run(debug=True)

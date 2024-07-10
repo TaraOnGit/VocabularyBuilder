@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vocabulary Builder</title>
+    <style>
+    div {text-align: center;}
+    </style>
+
+</head>
+<body bgcolor="#8E4E70">
+<div>
+    <form action="/get_synonyms", method="get">
+<h1>Build Your Vocabulary</h1>
+<h2><label for="word">Choose a word:</label></h2>
+
+    <select name="words" width="300px">
+        {% if word_list%}
+              {% for word in word_list %}
+                <option name="{{ word }}" SELECTED>{{ word }}  </option>
+               {% endfor%}
+        {%endif%}
+    </select><br><br>
+        <input type="Submit" value="Get Synonyms"> <br><br>
+</form>
+<h2>
+    {%if syn%}
+    {{syn}}
+    {%endif%}
+</h2>
+    </div>
+</body>
+</html>
