@@ -12,6 +12,7 @@ class FetchWords:
         return json.loads(wordlist.to_json())
 
     def get_synonyms(self,word):
+        print(word)
         words_df = pd.read_csv('words_synonyms.csv')
         word = word
 
@@ -23,8 +24,8 @@ class FetchWords:
                 if (temp_df.shape[0] == 0):
                     return 'No Synonyms Found'
         if (temp_df.shape[0] != 0):
-            return list(temp_df['Words'].values),list(temp_df['Synonym1'].values),list(temp_df['Synonym2'].values)
-
+            syns= pd.DataFrame([temp_df['Words'],temp_df['Synonym1'],temp_df['Synonym2']])
+            return json.loads(syns.to_json())
 fw = FetchWords()
 print(fw.get_synonyms('Abate'))
 fw.word_list()

@@ -16,9 +16,8 @@ def vocabulary():
 
 @app.route('/api/synonyms')
 def synonyms():
-    wl = fw.word_list()
-    return render_template('synonym.html', word_list = wl)
-
+    w = request.args.get('words')
+    return jsonify(fw.get_synonyms(w))
 
 @app.route('/get_synonyms', methods=['get'])
 def get_synonyms():
